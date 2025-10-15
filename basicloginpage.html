@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 15px;
+      padding: 40px 30px;
+      width: 350px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .login-container:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .input-field:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 5px #4facfe;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      border: none;
+      padding: 12px;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      transform: scale(1.03);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .message a {
+      color: #4facfe;
+      text-decoration: none;
+    }
+
+    .message a:hover {
+      text-decoration: underline;
+    }
+
+    #login-status {
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome Back 👋</h2>
+    <input type="text" id="username" class="input-field" placeholder="Username" required />
+    <input type="password" id="password" class="input-field" placeholder="Password" required />
+    <button class="btn" onclick="login()">Login</button>
+    <p class="message">Don't have an account? <a href="#">Sign Up</a></p>
+    <div id="login-status"></div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const status = document.getElementById("login-status");
+
+      if (user === "" || pass === "") {
+        status.style.color = "red";
+        status.textContent = "Please fill in all fields.";
+      } else if (user === "admin" && pass === "1234") {
+        status.style.color = "green";
+        status.textContent = "✅ Login successful!";
+      } else {
+        status.style.color = "red";
+        status.textContent = "❌ Invalid username or password.";
+      }
+    }
+  </script>
+</body>
+</html>
